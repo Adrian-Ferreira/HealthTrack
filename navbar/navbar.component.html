@@ -1,0 +1,38 @@
+<div class="col-md-12">
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <a class="navbar-brand tamanho img-fluid" href="#"> <img id="faq" src="../../assets/Logo HT hiader30px.png" alt="FAQ" [routerLink]="'/faq'"> </a>
+        <button class=" navbar-toggler" id="buttonCollapse" type="button" data-toggle="collapse"
+            data-target="#conteudoNavbarSuportado" aria-controls="conteudoNavbarSuportado" aria-expanded="false"
+            aria-label="Alterna navegação">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="conteudoNavbarSuportado">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" [routerLink]="'/home'"><strong>Home</strong><span class="sr-only">(página
+                            atual)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" [routerLink]="'/sobre'"><strong>lista de pesagem</strong></a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" [routerLink]="'/produto'"><strong>Indicadores</strong></a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" [routerLink]="'/login'" *ngIf="user.idUsuario == null"><strong>Login</strong></a>
+                    <a class="nav-link dropdown-toggle" type="button" id="navbarDropdown" role="button" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false" (click)="Login()" *ngIf="user.idUsuario != null">
+                        {{user.nome}}
+                    </a>
+                    <div class="dropdown-menu " aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item disabled">Meu ID de Usuário: <b>{{user.idUsuario}}</b> </a>
+                        <a class="dropdown-item" [routerLink]="'/cadastroproduto'">Cadastrar meu Produto</a>
+                        <a class="dropdown-item" [routerLink]="['/editausuario', user.idUsuario]">Atualizar meu
+                            Cadastro </a>
+                        <div class="dropdown-divider"></div>
+                        <button class="dropdown-item" id="logout" [routerLink]="'/login'"
+                            (click)="logout()">Logout</button>
+                    </div>
+                </li>
+            </ul>
